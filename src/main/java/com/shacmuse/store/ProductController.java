@@ -9,7 +9,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = {
+        "http://localhost:5173",           // dev
+        "https://your-frontend.vercel.app" // production
+})
 public class ProductController {
 
     private final List<Product> products = new ArrayList<>();
