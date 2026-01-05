@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/api/products")
 @CrossOrigin(origins = {
         "http://localhost:5173",           // dev
-        "https://tshopi.vercel.app/" // production
+        "https://tshopi.vercel.app" // production
 })
 public class ProductController {
 
