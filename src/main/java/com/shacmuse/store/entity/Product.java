@@ -1,12 +1,20 @@
-package com.shacmuse.store;
+package com.shacmuse.store.entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "products")
 public class Product {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
     private String category;
     private Double price;
 
-    public Product() {} // no-args
+    public Product() {}
 
     public Product(Long id, String name, String category, Double price) {
         this.id = id;
