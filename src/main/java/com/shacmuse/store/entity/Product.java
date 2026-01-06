@@ -14,16 +14,19 @@ public class Product {
     private String category;
     private Double price;
 
+    private String imageUrl; // <-- new field
+
     public Product() {}
 
-    public Product(Long id, String name, String category, Double price) {
+    public Product(Long id, String name, String category, Double price, String imageUrl) {
         this.id = id;
         this.name = name;
         this.category = category;
         this.price = price;
+        this.imageUrl = imageUrl;
     }
 
-    // GETTERS AND SETTERS
+    // getters & setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -35,4 +38,7 @@ public class Product {
 
     public Double getPrice() { return price; }
     public void setPrice(Double price) { this.price = price; }
+
+    public String getImageUrl() { return imageUrl; }
+    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
 }
