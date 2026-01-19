@@ -26,11 +26,15 @@ public class OrderController {
                 .orElseThrow();
 
         Order order = new Order();
+        order.setFirstName(request.getFirstName());
+        order.setLastName(request.getLastName());
         order.setPhone(request.getPhone());
         order.setEmail(request.getEmail());
         order.setAddress(request.getAddress());
         order.setQuantity(request.getQuantity());
         order.setProduct(product);
+        order.setSelectedImage(request.getSelectedImage());
+
 
         return orderRepository.save(order);
     }
