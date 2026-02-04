@@ -15,6 +15,11 @@ public class Product {
     private String category;
     private Double price;
 
+    // ✅ Stock status
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private StockStatus stockStatus = StockStatus.IN_STOCK;
+
     // ✅ Images
     @ElementCollection
     @CollectionTable(
@@ -35,22 +40,6 @@ public class Product {
 
     public Product() {}
 
-    public Product(
-            Long id,
-            String name,
-            String category,
-            Double price,
-            List<String> imageUrls,
-            List<String> videoUrls
-    ) {
-        this.id = id;
-        this.name = name;
-        this.category = category;
-        this.price = price;
-        this.imageUrls = imageUrls;
-        this.videoUrls = videoUrls;
-    }
-
     // Getters & Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -63,6 +52,9 @@ public class Product {
 
     public Double getPrice() { return price; }
     public void setPrice(Double price) { this.price = price; }
+
+    public StockStatus getStockStatus() { return stockStatus; }
+    public void setStockStatus(StockStatus stockStatus) { this.stockStatus = stockStatus; }
 
     public List<String> getImageUrls() { return imageUrls; }
     public void setImageUrls(List<String> imageUrls) { this.imageUrls = imageUrls; }
