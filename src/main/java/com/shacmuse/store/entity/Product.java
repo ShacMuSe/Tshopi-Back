@@ -1,6 +1,9 @@
 package com.shacmuse.store.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import java.util.List;
 
 @Entity
@@ -27,6 +30,7 @@ public class Product {
             joinColumns = @JoinColumn(name = "product_id")
     )
     @Column(name = "image_url")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<String> imageUrls;
 
     // ✅ Videos
@@ -36,6 +40,7 @@ public class Product {
             joinColumns = @JoinColumn(name = "product_id")
     )
     @Column(name = "video_url")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<String> videoUrls;
 
     public Product() {}
