@@ -67,11 +67,9 @@ public class OrderController {
             order.setAddress(request.getAddress());
             order.setProduct(item.getProduct());
             order.setQuantity(item.getQuantity());
-            order.setSelectedImage(
-                    item.getProduct().getImageUrls() != null
-                            ? item.getProduct().getImageUrls().get(0)
-                            : null
-            );
+
+            // ✅ use the image the user selected in the cart
+            order.setSelectedImage(item.getSelectedImage());
 
             orderRepository.save(order);
         }

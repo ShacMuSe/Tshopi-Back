@@ -4,6 +4,7 @@ public class AddToCartRequest {
     private String phone;
     private Long productId;
     private int quantity;
+    private String selectedImage;
 
     public String getPhone() {
         return phone;
@@ -27,6 +28,13 @@ public class AddToCartRequest {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public String getSelectedImage() {
+        return selectedImage; }  // <-- add
+
+    public void setSelectedImage(String selectedImage) {
+        this.selectedImage = selectedImage;
     }
 
 }

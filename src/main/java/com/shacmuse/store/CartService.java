@@ -32,8 +32,13 @@ public class CartService {
                     return cartRepo.save(c);
                 });
 
+        // find by product AND selected image
         CartItem item = itemRepo
-                .findByCartPhoneAndProductId(req.getPhone(), req.getProductId())
+                .findByCartPhoneAndProductIdAndSelectedImage(
+                        req.getPhone(),
+                        req.getProductId(),
+                        req.getSelectedImage()
+                )
                 .orElseGet(() -> {
                     CartItem ci = new CartItem();
                     ci.setCart(cart);
@@ -41,6 +46,7 @@ public class CartService {
                             productRepo.findById(req.getProductId()).orElseThrow()
                     );
                     ci.setQuantity(0);
+                    ci.setSelectedImage(req.getSelectedImage()); // save selected image
                     return ci;
                 });
 
@@ -59,5 +65,4 @@ public class CartService {
 
         itemRepo.delete(item);
     }
-
 }

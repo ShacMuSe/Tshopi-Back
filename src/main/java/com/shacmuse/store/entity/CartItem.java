@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(
         name = "cart_items",
-        uniqueConstraints = @UniqueConstraint(columnNames = {"cart_phone", "product_id"})
+        uniqueConstraints = @UniqueConstraint(columnNames = {"cart_phone", "product_id", "selected_image"})
 )
 public class CartItem {
 
@@ -22,6 +22,17 @@ public class CartItem {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "product_id")
     private Product product;
+
+    @Column(length = 1000)
+    private String selectedImage;
+
+    public String getSelectedImage() {
+        return selectedImage;
+    }
+
+    public void setSelectedImage(String selectedImage) {
+        this.selectedImage = selectedImage;
+    }
 
     private int quantity;
 
